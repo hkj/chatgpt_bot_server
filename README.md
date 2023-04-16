@@ -26,7 +26,7 @@ $ export SLACK_BOT_TOKEN=xoxb-1234567890-0987654321-abcdefghijklmnopq
 その後、`$ docker compose up`で起動し、8000ポートで待機します。
 
 ## PortなどURLを変更したい場合
-必要に応じて、./bot/Dockerfile, ./server/Dockerfile や、docker-compose.ymlのポートを変更して下さい。
+必要に応じて、./bot/app.py, ./server/Dockerfile や、docker-compose.ymlのポートを変更して下さい。
 
 ## botの使い方
 登録したWorkspaceの使いたいチャンネルの設定を開き、インテグレーションタブからAppグループの、アプリを追加するで、使いたいチャンネルに追加されます。その後、botに向かってChatGPTに聞きたい事をmentionで指定して下さい
