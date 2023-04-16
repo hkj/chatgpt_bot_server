@@ -6,7 +6,7 @@
 環境変数 OPENAI_API_KEY に ChatGPT の API_KEY を設定する
 ```shell
 例：
-$ export OPEN_API_KEY="sk-1234567890abcdefghijklmnopqrstuvwxyz"
+$ export OPENAI_API_KEY="sk-1234567890abcdefghijklmnopqrstuvwxyz"
 ```
 ### Slack bot用
 SLACK_BOT_TOKEN、 SLACK_APP_TOKEN の二つの環境変数を設定する。
