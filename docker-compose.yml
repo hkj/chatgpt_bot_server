@@ -22,7 +22,6 @@ services:
     environment:
       SLACK_APP_TOKEN: ${SLACK_APP_TOKEN}
       SLACK_BOT_TOKEN: ${SLACK_BOT_TOKEN}
-    extra_hosts:
-      - host.docker.internal:host-gateway
+    network_mode: host
     depends_on:
       - server
