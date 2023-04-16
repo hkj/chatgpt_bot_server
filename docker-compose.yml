@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  server:
+    container_name: chatgptserver
+    volumes:
+      - ./server:/server
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+  bot:
+    container_name: slackchatgptbot
+    volumes:
+      - ./bot:/bot
+    build:
+      context: ./bot
+      dockerfile: Dockerfile
+    environment:
+      SLACK_APP_TOKEN: ${SLACK_APP_TOKEN}
+      SLACK_BOT_TOKEN: ${SLACK_BOT_TOKEN}
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    depends_on:
+      - server
