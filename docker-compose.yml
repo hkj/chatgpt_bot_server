@@ -7,21 +7,32 @@ services:
       - ./server:/server
     build:
       context: ./server
+      args:
+        OPENAI_API_KEY: ${OPENAI_API_KEY}
+        SERVER_PORT: ${SERVER_PORT}
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "${SERVER_PORT}:${SERVER_PORT}"
     environment:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - SERVER_PORT=${SERVER_PORT}
   bot:
     container_name: slackchatgptbot
     volumes:
       - ./bot:/bot
     build:
       context: ./bot
+      args:
+        SLACK_APP_TOKEN: ${SLACK_APP_TOKEN}
+        SLACK_BOT_TOKEN: ${SLACK_BOT_TOKEN}
+        SERVER_URL: ${SERVER_URL}
+        SERVER_PORT: ${SERVER_PORT}
       dockerfile: Dockerfile
     environment:
-      SLACK_APP_TOKEN: ${SLACK_APP_TOKEN}
-      SLACK_BOT_TOKEN: ${SLACK_BOT_TOKEN}
+      - SLACK_APP_TOKEN=${SLACK_APP_TOKEN}
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
+      - SERVER_URL=${SERVER_URL}
+      - SERVER_PORT=${SERVER_PORT}
     network_mode: host
     depends_on:
       - server

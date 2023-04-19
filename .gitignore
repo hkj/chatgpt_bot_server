@@ -130,3 +130,5 @@ dmypy.json
 
 # Mac
 .DS_Store
+.devcontainer/devcontainer.json
+.devcontainer/docker-compose.yml
