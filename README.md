@@ -3,7 +3,7 @@
 ## 環境変数の設定
 
 ### .envファイルを作成
-.env.exampleファイルを.envにリネームし
+.env.exampleファイルを.envにコピーし
 中にある環境変数を設定する。
 ```shell
 OPENAI_API_KEY=
