@@ -11,8 +11,8 @@ async def chatgpt(q_text):
     openai.api_key = os.environ.get("OPENAI_API_KEY")
     try:
         completion = openai.ChatCompletion.create(
-            #   model="gpt-3.5-turbo",
-            model="gpt-4",
+            model="gpt-3.5-turbo",
+            # model="gpt-4",
             messages=[{"role": "user", "content": q_text}],
         )
         return {"answer": completion.choices[0].message.content}
